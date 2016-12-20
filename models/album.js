@@ -5,10 +5,7 @@ var mongoose = require('mongoose'),
 var AlbumSchema = new Schema({
   artistName: String,
   name: String,
-  songs: {
-    type: Schema.Types.ObjectId,
-    ref: 'Song'
-  },
+  songs: [songData.schema],
   releaseDate: String,
   genres: [String]
 });

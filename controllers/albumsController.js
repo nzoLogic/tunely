@@ -6,6 +6,7 @@ function index(req, res) {
    if (err) {
      console.log('there is an error in the controller.js index function');
    }
+   console.log('album is ', album);
    res.json(album);
  })
 }
