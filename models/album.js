@@ -1,11 +1,11 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
-    songData = require("./song.js"); // does it need a capital S?
+    Track = require("./song.js"); // does it need a capital S?
 
 var AlbumSchema = new Schema({
   artistName: String,
   name: String,
-  songs: [songData.schema],
+  songs: [Track.schema],
   releaseDate: String,
   genres: [String]
 });

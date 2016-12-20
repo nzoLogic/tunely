@@ -17,7 +17,7 @@ $(document).ready(function() {
     $.ajax({
         method: 'GET',
         url: '/api/albums',
-        success: handleSuccess,
+        success: handlePageLoadSuccess,
         error: handleError
     })
 
@@ -39,8 +39,9 @@ $(document).ready(function() {
         renderAlbum([data]);
     }
 
-    function handleSuccess(albums) {
+    function handlePageLoadSuccess(albums) {
         console.log('way to go, ajax succes.');
+        console.log(albums);
         renderAlbum(albums);
     }
 
