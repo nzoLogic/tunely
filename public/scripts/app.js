@@ -57,12 +57,27 @@ $(document).ready(function() {
     error: handleError
   })
 
+  $('.album-form').submit(function (event) {
+    event.preventDefault();
+    $.ajax ({
+      method: 'POST',
+      url: '/api/albums',
+      data: $(this).serializeArray(),
+      success: handleFormAlbumSuccess,
+      error: handleError
+    });
+  })
+
   function handleSuccess(albums){
     console.log('way to go, ajax succes.');
     renderAlbum(albums);
   }
-});
 
+  function handleFormAlbumSuccess(data){
+    console.log('Form Album submission succesful!! You are smart and cool.', data);
+  }
+
+});
 
 function handleError(){
   console.log('ya done messed up a-aron.  ajax error');

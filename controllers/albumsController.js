@@ -43,7 +43,14 @@ function index(req, res) {
 
 // POST /api/albums
 function create(req, res) {
- // create an album based on request body and send it back as JSON
+  var newAlbum = new db.Album(req.body);
+  newAlbum.save(function(err, newAlbum) {
+    if (err) {
+      console.log('error saving album.');
+    }
+    console.log('new album saved!');
+    res.send(newAlbum)
+  });
 }
 
 // GET /api/albums/:albumId
