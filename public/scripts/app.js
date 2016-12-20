@@ -8,7 +8,7 @@ $(document).ready(function() {
     function renderAlbum(albums) {
 
         albums.forEach(function(album) {
-            $('.panel-body').append(albumHandlebars({
+            $('#albums').append(albumHandlebars({
                 album: album
             }));
         })
@@ -44,6 +44,11 @@ $(document).ready(function() {
         console.log(albums);
         renderAlbum(albums);
     }
+    $('#albums').click(function(event) {
+      console.log('add-song clicked!');
+      var id = $(this).closest('.album').data('album-id'); // "5665ff1678209c64e51b4e7b"
+      console.log('id', id);
+    });
 
 });
 
